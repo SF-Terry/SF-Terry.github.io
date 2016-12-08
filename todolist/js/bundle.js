@@ -9714,15 +9714,17 @@
 				var buttons = [];
 
 				var _loop = function _loop(buttonLevel) {
-					buttons.push(_react2.default.createElement(Column, { width: 4, key: buttonLevel }, _react2.default.createElement(_semanticUiReact.Button, { circular: true, basic: buttonLevel != _this6.state.level, content: buttonsInfo[buttonLevel].text, color: buttonsInfo[buttonLevel].color, onClick: function onClick() {
+					buttons.push(_react2.default.createElement('span', null, '\xA0\xA0', _react2.default.createElement(_semanticUiReact.Button, { className: 'taskLevelButton', basic: buttonLevel != _this6.state.level, content: buttonsInfo[buttonLevel].text, color: buttonsInfo[buttonLevel].color, onClick: function onClick() {
 							_this6.setLevel(buttonLevel);
-						} })));
+						}, key: buttonLevel })));
 				};
 
 				for (var buttonLevel in buttonsInfo) {
 					_loop(buttonLevel);
 				}
-				return _react2.default.createElement('div', { style: { textAlign: 'center' } }, _react2.default.createElement(_semanticUiReact.Grid, null, _react2.default.createElement(Row, null, buttons)));
+				return _react2.default.createElement('div', { style: {
+						textAlign: 'center'
+					} }, buttons);
 			}
 		}]);
 
@@ -9887,7 +9889,7 @@
 						top: 0,
 						width: document.body.clientWidth,
 						height: document.body.clientHeight
-					} }, _react2.default.createElement(_semanticUiReact.Grid, { padded: true }, _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 14 }, _react2.default.createElement(_semanticUiReact.Input, { className: 'AddTask_TaskNameInput', defaultValue: name, placeholder: 'Task Content', onChange: this.taskNameInputChange, fluid: true }))), _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 14 }, _react2.default.createElement(TaskLevelButtons, { level: taskLevel, taskLevelButtonsCallback: this.taskLevelButtonsCallback }))), _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 16 }, _react2.default.createElement(TaskTypePanel, { taskType: taskType, isTaskNeedTimer: isTaskNeedTimer, isTaskNeedRepeat: isTaskNeedRepeat, isNeedTimeSetter: isNeedTimeSetter, startDate: startDate, endDate: endDate, taskTypePanelCallback: this.taskTypePanelCallback }))), _react2.default.createElement(Row, null), _react2.default.createElement(Row, null, _react2.default.createElement(Column, { width: 16 }, _react2.default.createElement(_semanticUiReact.Grid, { padded: true }, _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 12 }, _react2.default.createElement(_semanticUiReact.Button, { content: '\u5B8C\u6210', fluid: true, color: 'blue', onClick: this.completeBtnClick }))), mode === globalTaskInfoMode.add ? _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 12 }, _react2.default.createElement(_semanticUiReact.Button, { content: '\u7EE7\u7EED\u6DFB\u52A0', fluid: true, color: 'teal', onClick: this.continueToAddBtn }))) : '', _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 12 }, _react2.default.createElement(_semanticUiReact.Button, { content: '\u8FD4\u56DE', fluid: true, color: 'grey', onClick: this.backBtnClick }))))))));
+					} }, _react2.default.createElement(_semanticUiReact.Grid, { padded: true }, _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 14 }, _react2.default.createElement(_semanticUiReact.Input, { className: 'AddTask_TaskNameInput', defaultValue: name, placeholder: 'Task Content', onChange: this.taskNameInputChange, fluid: true }))), _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 16 }, _react2.default.createElement(TaskLevelButtons, { level: taskLevel, taskLevelButtonsCallback: this.taskLevelButtonsCallback }))), _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 16 }, _react2.default.createElement(TaskTypePanel, { taskType: taskType, isTaskNeedTimer: isTaskNeedTimer, isTaskNeedRepeat: isTaskNeedRepeat, isNeedTimeSetter: isNeedTimeSetter, startDate: startDate, endDate: endDate, taskTypePanelCallback: this.taskTypePanelCallback }))), _react2.default.createElement(Row, null), _react2.default.createElement(Row, null, _react2.default.createElement(Column, { width: 16 }, _react2.default.createElement(_semanticUiReact.Grid, { padded: true }, _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 12 }, _react2.default.createElement(_semanticUiReact.Button, { content: '\u5B8C\u6210', fluid: true, color: 'blue', onClick: this.completeBtnClick }))), mode === globalTaskInfoMode.add ? _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 12 }, _react2.default.createElement(_semanticUiReact.Button, { content: '\u7EE7\u7EED\u6DFB\u52A0', fluid: true, color: 'teal', onClick: this.continueToAddBtn }))) : '', _react2.default.createElement(Row, { centered: true }, _react2.default.createElement(Column, { width: 12 }, _react2.default.createElement(_semanticUiReact.Button, { content: '\u8FD4\u56DE', fluid: true, color: 'grey', onClick: this.backBtnClick }))))))));
 			}
 		}]);
 
@@ -10218,7 +10220,7 @@
 				var isCompletesOptions = [{ value: 1, text: '已完成' }, { value: 0, text: '未完成' }];
 				var defalutIsComplete = 0;
 
-				return _react2.default.createElement('div', null, _react2.default.createElement(_semanticUiReact.Grid, { padded: true }, _react2.default.createElement(Row, null, _react2.default.createElement(Column, { width: 7 }, _react2.default.createElement(TaskTypeSelector, { taskType: 0, taskTypes: taskTypes, taskTypeSelectorCallback: this.taskTypeSelectorCallback })), _react2.default.createElement(Column, { width: 5 }, _react2.default.createElement(_semanticUiReact.Dropdown, { fluid: true, selection: true, defaultValue: defalutIsComplete, options: isCompletesOptions, onChange: this.isCompleteDropdownChange })), _react2.default.createElement(Column, { width: 4, textAlign: 'center', verticalAlign: 'middle' }, _react2.default.createElement(_semanticUiReact.Button, { color: !editMode ? 'blue' : 'google plus', onClick: this.editBtnClick }, !editMode ? '编辑' : '完成')))), isShowTaskList ? _react2.default.createElement('div', null, _react2.default.createElement(TaskList, { taskType: taskType, editMode: editMode, isTaskCompleted: isTaskCompleted })) : null);
+				return _react2.default.createElement('div', null, _react2.default.createElement(_semanticUiReact.Grid, { padded: true }, _react2.default.createElement(Row, null, _react2.default.createElement(Column, { width: 6 }, _react2.default.createElement(TaskTypeSelector, { taskType: 0, taskTypes: taskTypes, taskTypeSelectorCallback: this.taskTypeSelectorCallback })), _react2.default.createElement(Column, { width: 6 }, _react2.default.createElement(_semanticUiReact.Dropdown, { fluid: true, selection: true, defaultValue: defalutIsComplete, options: isCompletesOptions, onChange: this.isCompleteDropdownChange })), _react2.default.createElement(Column, { width: 4, textAlign: 'right', verticalAlign: 'middle' }, _react2.default.createElement(_semanticUiReact.Button, { color: !editMode ? 'blue' : 'google plus', size: 'mini', onClick: this.editBtnClick }, !editMode ? '编辑' : '完成')))), isShowTaskList ? _react2.default.createElement('div', null, _react2.default.createElement(TaskList, { taskType: taskType, editMode: editMode, isTaskCompleted: isTaskCompleted })) : null);
 			}
 		}]);
 
@@ -88267,7 +88269,7 @@
 
 
 	// module
-	exports.push([module.id, "/* Environment */\nhtml, body {\n  overflow: hidden; }\n\n/* Components */\n.ToDoList .MultiFunctionBtn {\n  position: fixed;\n  bottom: 10%;\n  right: 10%; }\n\n.ToDoList .TaskInfo {\n  z-index: 1;\n  background: white;\n  overflow-y: scroll; }\n  .ToDoList .TaskInfo .TimeSetter {\n    z-index: 2;\n    overflow-y: scroll;\n    background: white; }\n", ""]);
+	exports.push([module.id, "/* Environment */\nhtml, body {\n  overflow: hidden; }\n\n/* Components */\n.ToDoList .MultiFunctionBtn {\n  position: fixed;\n  bottom: 10%;\n  right: 10%; }\n\n.ToDoList .TaskInfo {\n  z-index: 1;\n  background: white;\n  overflow-y: scroll; }\n  .ToDoList .TaskInfo .TimeSetter {\n    z-index: 2;\n    overflow-y: scroll;\n    background: white; }\n  .ToDoList .TaskInfo .taskLevelButton {\n    font-size: 12px !important; }\n\n.ToDoList .ui.selection.dropdown .menu {\n  max-height: 20.03571rem !important; }\n", ""]);
 
 	// exports
 

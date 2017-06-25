@@ -2,8 +2,8 @@ CACHE MANIFEST
 
 CACHE:
 /index.html
-/js/vendor.js
 /js/bundle.js
+/js/vendor.js
 /css/themes/default/assets/fonts/icons.eot
 /css/themes/default/assets/fonts/icons.otf
 /css/themes/default/assets/fonts/icons.svg

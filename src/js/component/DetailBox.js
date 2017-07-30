@@ -6,21 +6,33 @@ import {
 import DetailBoxContent from './DetailBoxContent'
 import DetailBoxInfo from './DetailBoxInfo'
 
-export default function DetailBox() {
-	return (
-		<div>
+export default function DetailBox({ routeInfo }) {
+  const {
+    blog
+  } = routeInfo
+
+  const {
+    title,
+    createTime,
+    tags,
+    content,
+    repostNotice
+  } = blog
+
+  return (
+    <div>
       <h1 style={{
         textAlign: 'center'
-      }}>Blog Title</h1>
+      }}>{ title }</h1>
       <br />
-      <DetailBoxContent />
+      <DetailBoxContent content={content}/>
       <br />
       <Row type='flex' justify='center'>
         <Col xs={18} sm={22}>
-          <DetailBoxInfo />
+          <DetailBoxInfo createTime={createTime} tags={tags || []} repostNotice={repostNotice}/>
         </Col>
       </Row>
-      
-		</div>
-	)
+
+    </div>
+  )
 }

@@ -3,32 +3,34 @@ import {
   Tag
 } from 'antd'
 
-function TagBox({ children }) {
+function TagBox({ color, onClick, children }) {
   return (
     <span style={{
       display: 'inline-block',
       padding: '5px'
     }} >
-      <Tag color='blue'>
+      <Tag color={color} onClick={onClick}>
         {children}
       </Tag>
     </span>
   )
 }
 
-export default function Tags() {
+export default function Tags({ tags, routeInfo, onTagClick }) {
+  const {
+    tag,
+    listMode
+  } = routeInfo
+
+  const shouldActiveTag = listMode === 1
+  const activeIndex = tags.indexOf(tag)
   return (
     <div style={{
       padding: '10px'
     }}>
-      <TagBox>Tag1</TagBox>
-      <TagBox>Tag2</TagBox>
-      <TagBox>Tag3</TagBox>
-      <TagBox>Tag4</TagBox>
-      <TagBox>Tag5</TagBox>
-      <TagBox>Tag6</TagBox>
-      <TagBox>Tag7</TagBox>
-      <TagBox>Tag8</TagBox>
+      {
+        tags.map((tag, index) => <TagBox key={index} color={shouldActiveTag && activeIndex === index ? '#108ee9' : 'blue'} onClick={() => onTagClick(tag)}>{tag}</TagBox>)
+      }
     </div>
   )
 }

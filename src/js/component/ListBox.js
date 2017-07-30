@@ -4,15 +4,15 @@ import {
 } from 'antd'
 import ListBoxItem from './ListBoxItem'
 
-export default function ListBox() {
+export default function ListBox({ blogs, routeInfo, onItemClick }) {
   return (
     <div>
       <Card noHovering bordered={false}>
-        {[...'12345'].map((v, i) => (
+        {blogs.map((blog, i) => (
           <div key={i} style={{
             padding: '5px 0 5px 20px'
           }}>
-            <ListBoxItem />
+            <ListBoxItem blog={blog} onClick={() => onItemClick(blog)} />
           </div>
         ))}
       </Card>

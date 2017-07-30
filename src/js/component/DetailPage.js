@@ -5,8 +5,8 @@ import {
   Layout,
 } from 'antd'
 
-import Breadcrumb from './Breadcrumb'
-import DetailBox from './DetailBox'
+import BreadcrumbContainer from '../container/BreadcrumbContainer'
+import DetailBoxContainer from '../container/DetailBoxContainer'
 import Copyright from './Copyright'
 
 const {
@@ -19,11 +19,11 @@ export default function DetailPage() {
       <Header style={{
         backgroundColor: 'white'
       }}>
-        <Breadcrumb />
+        <BreadcrumbContainer />
       </Header>
       <Row type='flex' justify='center'>
         <Col xs={23} sm={12}>
-          <DetailBox />
+          <DetailBoxContainer/>
         </Col>
       </Row>
 

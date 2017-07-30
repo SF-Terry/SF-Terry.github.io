@@ -58,3 +58,5 @@ Promise.all([
 
 # Conclusion
 Fetch, well done!
+
+::: data {"tags": ["javascript", "es6"]}

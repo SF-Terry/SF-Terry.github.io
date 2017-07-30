@@ -10,7 +10,7 @@ import {
 import NewestColumnItem from './NewestColumnItem'
 
 
-export default function NewestColumn() {
+export default function NewestColumn({ blogs, onTitleClick }) {
   return (
     <div>
       <Card title={
@@ -18,11 +18,11 @@ export default function NewestColumn() {
           textAlign: 'center'
         }}>The newest</h3>
       } noHovering bordered={false}>
-        <NewestColumnItem>Fri Jul 28 2017  Blog title 1</NewestColumnItem>
-        <NewestColumnItem>Fri Jul 28 2017  Blog title 2</NewestColumnItem>
-        <NewestColumnItem>Fri Jul 28 2017  Blog title 3</NewestColumnItem>
-        <NewestColumnItem>Fri Jul 28 2017  Blog title 4</NewestColumnItem>
-        <NewestColumnItem>Fri Jul 28 2017  Blog title 5</NewestColumnItem>
+      {
+        blogs.map((blog, index) => (
+          <NewestColumnItem key={index} onClick={() => {onTitleClick(blog)}}>{blog.title}</NewestColumnItem>
+        ))
+      }
       </Card>
     </div>
   )

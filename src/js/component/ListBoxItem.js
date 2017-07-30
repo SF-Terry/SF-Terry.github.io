@@ -1,11 +1,11 @@
 import React from 'react'
 
 
-export default function ListBoxItem() {
+export default function ListBoxItem({ blog, onClick }) {
   return (
-    <div>
-      <h1>Blog title</h1>
-      <p>Abstract content</p>
+    <div onClick={onClick}>
+      <h1>{ blog.title }</h1>
+      <p>{ blog.abstract }</p>
     </div>
   )
 }

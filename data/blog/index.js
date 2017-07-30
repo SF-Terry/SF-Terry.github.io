@@ -1,1 +1,0 @@
-export default {"blogs":[{"title":"test.html","path":"/data/blog/dist/test.html","abstract":"INTRODUCTION\nDo you prefer the usage of \"ES6 Promise\"? If you do, you will like the usage of\n\"Fetch\"...","createTime":"2017-07-29","tag":null,"catagory":null}],"catalog":["catagory1","catagory2"],"tags":{}}

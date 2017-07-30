@@ -1,21 +1,38 @@
 import React from 'react'
 import { Menu } from 'antd'
 
-import Tags from './Tags'
+import TagsContainer from '../container/TagsContainer'
 
-export default function Catalog() {
-  return (
-    <div>
-      <Menu style={{
-        border: 'none'
-      }}>
-        <Menu.Item key="1">List1</Menu.Item>
-        <Menu.Item key="2">List2</Menu.Item>
-        <Menu.Item key="3">List3</Menu.Item>
-        <Menu.Item key="4">List4</Menu.Item>
-        <Menu.Item key="5">List5</Menu.Item>
-      </Menu>
-      <Tags />
-    </div>
-  )
+
+export default class Catalog extends React.Component {
+  render() {
+    const { catalog, routeInfo, onCategoryClick } = this.props
+    const {
+      category,
+      tag,
+      listMode
+    } = routeInfo
+
+    const shouldActiveCategory = listMode === 0
+    const activeCategoryKey = '' + catalog.indexOf(category)
+
+    return (
+      <div>
+        <Menu style={{
+          border: 'none'
+        }} selectedKeys={shouldActiveCategory ? [activeCategoryKey] : []}>
+          {
+            catalog.map((category, index) =>
+              <Menu.Item key={index}>
+                <div onClick={() => onCategoryClick(category)}>
+                  {category}</div>
+              </Menu.Item>
+            )
+          }
+        </Menu>
+        <TagsContainer />
+      </div>
+    )
+  }
 }
+

@@ -5,9 +5,9 @@ import {
   Layout,
 } from 'antd'
 
-import Catalog from './Catalog'
-import NewestColumn from './NewestColumn'
-import Notion from './Notion'
+import CatalogContainer from '../container/CatalogContainer'
+import NewestColumnContainer from '../container/NewestColumnContainer'
+import NotionContainer from '../container/NotionContainer'
 import Copyright from './Copyright'
 
 const {
@@ -18,17 +18,17 @@ const {
 export default function HomePage() {
   return (
     <div>
-      <Notion />
+      <NotionContainer />
       <Content>
         <Row type="flex" gutter={1} justify={'left'}>
           <Col xs={1} sm={2}/>
           <Col xs={13} sm={13}>
-            <NewestColumn />
+            <NewestColumnContainer />
           </Col>
           <Col xs={3} sm={2}/>
           <Col xs={6} sm={6}>
             <br />
-            <Catalog />
+            <CatalogContainer />
           </Col>
         </Row>
       </Content>

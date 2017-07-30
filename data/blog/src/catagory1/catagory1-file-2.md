@@ -1,60 +1,78 @@
+# The concept of "Promise"
+Promise is used to **asynchronous computations**.
+
+
 # Introduction
-Do you prefer the usage of "ES6 Promise"? If you do, you will like the usage of "Fetch" too.  
-Compared to "Ajax", "Fetch" owns a competitive feature: promise, which synchronize asynchronous methods elegantly, the meaning and the usage of "Fetch"  can be understood easily as well.   
-Here, I'd like to list the most common usage of "Fetch". 
+"Synchronize asynchronous methods" is always a hot topic.Here, "Promise" is one way to achieve the goal.
 
-# Flow
-The flow of fetching staff is simple:
-image1
 
-# Usage
-## Fetch once
-Suppose we would fetch the content of an remote html
+# Promise Model
+## Basic Promise Model
+`images1`
+
+In javascript, it's like:
 ```js
-fetch('./data/test.html')
-	.then(function (response) {
-		return response.text()    // return a promise 
-	})
-	.then(function (body) {
-		console.log( body )    // log: html content
-	})
-```
+// #1 Create a "Promise" object
+const testPromise = new Promise( (resolve, reject) => {
+  // resolve("parameters") or reject("parameters")
+  // example 1: setTimeout(resolve, 1000, 'parameters')
+  // example 2: setTimeout(reject, 1000, 'parameters')
+} )
 
-## Fetch data right after the other data fetched(Chain)
-If we'd like to fetch data(json) right after fetching content(html)
-```js
-fetch('./data/test.html')
-	.then(response => {
-		return response.text()
-	})
-	.then(body => {
-		console.log(body)
-		return fetch('./data/test.json')  // return a promise(`fetch('/url')` will return a promise ) 
-	})
-	.then(response => {
-		return response.json()  // return a promise too
-	})
-	.then(json => {
-		console.log(json)  // log: json's data
-	})
-```
-
-
-
-## Complete all fetching action
-```js
-Promise.all([
-	Promise.resolve(fetch('./data/test.html')),
-	Promise.resolve(fetch('./data/test.json'))
-]).then(data => {
-	console.log('Two requests are both completed!')
+testPromise.then( value => {
+    // #2 Monitor the state of "Promise", if state is "fulfilled"
+},  value => {
+    // #2 Monitor the state of "Promise", if state is "rejected"
 })
+
+```
+## Chaining promise model
+`images2`
+```js
+const testPromise = new Promise( (resolve, reject) => {
+  // set the state of "Promise" to "fulfilled"
+  resolve()
+} )
+
+testPromise
+    .then( value => {
+        // Continue to create "Promise"
+        return new Promise( (resolve, reject) => {
+            resolve()
+        } )
+    }, value => {
+    })
+    .then( value => {
+        // Continue to create "Promise"
+        return new Promise( (resolve, reject) => {
+        resolve('parameters')
+        } )
+    }, value => {
+    })
+    .then( value => {
+        console.log(value)  // output: 'paramaters'
+    }, value => {
+    })
 ```
 
 
-# API
-[Github Fetch Document](https://github.github.io/fetch/)  
-[Offcial Manual](https://fetch.spec.whatwg.org/)
+# Grammar
+### Initialize
+[Promise constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+### Chain
+[Promise.prototype.then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
+### Catch rejected reason
+[Promise.prototype.catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch)
+### Resolve or reject parameters directly
+[Promise.resolve()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve)
+[Promise.reject()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject)
+### Queue
+[Promise.all()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)
+### Apply fastest promise
+[Promise.race](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race)
+
+
 
 # Conclusion
-Fetch, well done!
+There must be lots of ways to synchronize asynchronous methods, however, it's more convenient if a standard emerges so we can build robust program more easily.Obviously, promise is an ideal standard.
+::: data {"tags": ["javascript", "promise"]}

@@ -1,11 +1,21 @@
-import { getLocalStore } from '../store/localStore'
-
-const localStore = getLocalStore() || {}
-
-export default function blog(state=localStore, action) {
-  return {
-    blogs: blogs(state.blogs, action),
-    setting: blogs(state.setting, action),
-    innerState: blogs(state.innerState, action),
-  }
+export default function getReducer(blogData) {
+    return (state = blogData, action) => {
+        switch (action.type) {
+            case 'UPDATE_ROUTE':
+                return {
+                    ...state,
+                    route: action.value
+                }
+            case 'UPDATE_ROUTEINFO':
+                return {
+                    ...state,
+                    routeInfo: {
+                        ...state.routeInfo,
+                        ...action.value
+                    } 
+                }
+            default:
+                return state
+        }
+    }
 }

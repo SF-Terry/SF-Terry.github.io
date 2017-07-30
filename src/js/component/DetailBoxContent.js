@@ -1,10 +1,9 @@
 import React from 'react'
 
 
-export default function DetailBoxContent() {
+export default function DetailBoxContent({ content }) {
 	return (
-		<div>
-      
+		<div dangerouslySetInnerHTML={{__html: content}}>
 		</div>
 	)
 }

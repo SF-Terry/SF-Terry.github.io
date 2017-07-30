@@ -8,7 +8,7 @@ var NODE_PORT = process.env.NODE_PORT
 var plugins = [];
 if (NODE_ENV === 'PROD') {
   // add plugins
-  plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'));
+  // plugins.push(new webpack.optimize.CommonsChunkPlugin('vendor.js'));
   plugins.push(new webpack.optimize.UglifyJsPlugin());
 }
 

@@ -5,9 +5,9 @@ import {
   Layout,
 } from 'antd'
 
-import Breadcrumb from './Breadcrumb'
-import Catalog from './Catalog'
-import ListBox from './ListBox'
+import BreadcrumbContainer from '../container/BreadcrumbContainer'
+import CatalogContainer from '../container/CatalogContainer'
+import ListBoxContainer from '../container/ListBoxContainer'
 import Copyright from './Copyright'
 
 
@@ -23,17 +23,17 @@ export default function ListPage() {
       <Header style={{
         backgroundColor: 'white'
       }}>
-        <Breadcrumb />
+        <BreadcrumbContainer />
       </Header>
       <Row>
         <Col xs={1} sm={1}/>
         <Col xs={23} sm={6}>
           <br />
-          <Catalog />
+          <CatalogContainer />
         </Col>
         <Col xs={0} sm={2}></Col>
         <Col xs={24} sm={16}>
-          <ListBox />
+          <ListBoxContainer />
         </Col>
       </Row>
 

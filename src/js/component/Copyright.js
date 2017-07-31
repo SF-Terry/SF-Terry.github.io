@@ -10,7 +10,10 @@ const {
 
 export default function Copyright() {
   return (
-    <Footer style={{ textAlign: 'center' }}>
+    <Footer style={{ 
+      textAlign: 'center',
+      padding: '200px 0 20px 0'
+       }}>
       Copyright © 2017 TERRY SU ALL RIGHTS RESERVED
     </Footer>
   )

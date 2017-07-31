@@ -20,7 +20,7 @@ export default function DetailBox({ routeInfo }) {
   } = blog
 
   return (
-    <div>
+    <div id="detail">
       <h1 style={{
         textAlign: 'center'
       }}>{ title }</h1>
@@ -28,7 +28,7 @@ export default function DetailBox({ routeInfo }) {
       <DetailBoxContent content={content}/>
       <br />
       <Row type='flex' justify='center'>
-        <Col xs={18} sm={22}>
+        <Col xs={23} sm={23}>
           <DetailBoxInfo createTime={createTime} tags={tags || []} repostNotice={repostNotice}/>
         </Col>
       </Row>

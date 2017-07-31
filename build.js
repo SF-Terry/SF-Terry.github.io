@@ -38,8 +38,8 @@ fs.writeFile(blogDataPath, JSON.stringify(data), function (err) {
 
 function getBlogData() {
   return {
-    blogTitle: "Terry Su's Blog",
-    NewestColumnTitle: 'The newest',
+    blogTitle: "Terry Su 的博客",
+    NewestColumnTitle: '最新博客',
     blogs: getBlogs(),
     catalog: getCatalog(),
     tags: getTags(),
@@ -89,7 +89,7 @@ function getBlogData() {
     // reformat create time
     blogs = blogs.map(blog => {
       return Object.assign(blog, {
-        createTime: moment(blog.createTime).format('YYYY MMMM dddd, h:mm:ss a')
+        createTime: moment(blog.createTime).format()
       })
     })
     return blogs
@@ -139,7 +139,7 @@ function getBlogData() {
         createTime,
         tags,
         category,
-        repostNotice: '转载请注明出处',
+        repostNotice: '本文为原创文章，转载请注明出处',
         content: null
       })
 

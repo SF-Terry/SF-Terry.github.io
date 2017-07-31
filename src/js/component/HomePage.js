@@ -18,18 +18,21 @@ const {
 export default function HomePage() {
   return (
     <div>
+      <br />
       <NotionContainer />
+      <br /><br /><br />
       <Content>
-        <Row type="flex" gutter={1} justify={'left'}>
-          <Col xs={1} sm={2}/>
-          <Col xs={13} sm={13}>
+        <Row type="flex" gutter={1} justify={'center'}>
+          <Col xs={0} sm={1}/>
+          <Col xs={20} sm={8}>
             <NewestColumnContainer />
           </Col>
-          <Col xs={3} sm={2}/>
-          <Col xs={6} sm={6}>
+          <Col xs={0} sm={2}/>
+          <Col xs={20} sm={6}>
             <br />
             <CatalogContainer />
           </Col>
+          <Col xs={0} sm={1}/>
         </Row>
       </Content>
       <br /><br /><br />

@@ -16,13 +16,16 @@ const {
 export default function DetailPage() {
   return (
     <div>
-      <Header style={{
-        backgroundColor: 'white'
-      }}>
-        <BreadcrumbContainer />
-      </Header>
+      <br />
       <Row type='flex' justify='center'>
-        <Col xs={23} sm={12}>
+        <Col xs={1} sm={1} />
+        <Col xs={23} sm={23}>
+          <BreadcrumbContainer />
+        </Col>
+      </Row>
+      <br /><br />
+      <Row type='flex' justify='center'>
+        <Col xs={23} sm={18}>
           <DetailBoxContainer/>
         </Col>
       </Row>

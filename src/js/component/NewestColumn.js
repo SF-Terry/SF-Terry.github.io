@@ -20,7 +20,7 @@ export default function NewestColumn({ blogs, onTitleClick }) {
       } noHovering bordered={false}>
       {
         blogs.map((blog, index) => (
-          <NewestColumnItem key={index} onClick={() => {onTitleClick(blog)}}>{blog.title}</NewestColumnItem>
+          <NewestColumnItem key={index} blog={blog} onClick={() => {onTitleClick(blog)}}></NewestColumnItem>
         ))
       }
       </Card>

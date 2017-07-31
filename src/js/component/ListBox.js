@@ -10,7 +10,7 @@ export default function ListBox({ blogs, routeInfo, onItemClick }) {
       <Card noHovering bordered={false}>
         {blogs.map((blog, i) => (
           <div key={i} style={{
-            padding: '5px 0 5px 20px'
+            padding: '20px 0 20px 0'
           }}>
             <ListBoxItem blog={blog} onClick={() => onItemClick(blog)} />
           </div>

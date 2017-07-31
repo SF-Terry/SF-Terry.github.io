@@ -14,8 +14,6 @@ const mapStateToProps = (state, ownProps) => {
     listMode
   } = state.routeInfo
 
-  console.log(listMode)
-
   let blogs = state.blogs.filter(blog => {
     // only show category
     if (listMode === 0) {
